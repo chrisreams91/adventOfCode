@@ -2262,6 +2262,10 @@ const elvesWithCaloriesCounted = elvesAndCaloriesTheyhold.map((elf) =>
   elf.reduce((acc, cV) => acc + cV, 0)
 );
 
-const elfWithDaMost = elvesWithCaloriesCounted.sort((a, b) => b - a)[0];
+const elvesSorted = elvesWithCaloriesCounted.sort((a, b) => b - a);
+const elfWithDaMost = elvesSorted[0];
 
 console.log(JSON.stringify(elfWithDaMost));
+
+const topThreeTotal = elvesSorted.slice(0, 3).reduce((a, c) => a + c, 0);
+console.log(topThreeTotal);
