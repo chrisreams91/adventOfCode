@@ -2506,56 +2506,56 @@ console.log(formattedRounds);
 // win 6
 // tie 3
 // loss 0
-const calculatePointsForChoice = (choice) => {
+const calculatePointsForResultr = (choice) => {
   if (choice === "X") {
-    return 1;
+    return 0;
   }
   if (choice === "Y") {
-    return 2;
-  }
-  if (choice === "Z") {
     return 3;
   }
+  if (choice === "Z") {
+    return 6;
+  }
 };
-const calculatePointsForResultr = (them, me) => {
+const calculatePointsForChoice = (them, me) => {
   if (them === "A") {
     if (me === "X") {
       return 3;
     }
     if (me === "Y") {
-      return 6;
+      return 1;
     }
     if (me === "Z") {
-      return 0;
+      return 2;
     }
   }
   if (them === "B") {
     if (me === "X") {
-      return 0;
+      return 1;
     }
     if (me === "Y") {
-      return 3;
+      return 2;
     }
     if (me === "Z") {
-      return 6;
+      return 3;
     }
   }
   if (them === "C") {
     if (me === "X") {
-      return 6;
+      return 2;
     }
     if (me === "Y") {
-      return 0;
+      return 3;
     }
     if (me === "Z") {
-      return 3;
+      return 1;
     }
   }
 };
 
 const scoresPerRound = formattedRounds.map((round) => {
-  const pointsForChoice = calculatePointsForChoice(round[1]);
-  const pointsForResult = calculatePointsForResultr(...round);
+  const pointsForChoice = calculatePointsForResultr(round[1]);
+  const pointsForResult = calculatePointsForChoice(...round);
   return pointsForChoice + pointsForResult;
 });
 
