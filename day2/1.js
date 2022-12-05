@@ -1,4 +1,4 @@
-var { readInput } = require("../util");
+const { readInput } = require("../util");
 const input = readInput("./input.txt");
 
 const formattedRounds = input.map((round) => round.replace(" ", "").split(""));
